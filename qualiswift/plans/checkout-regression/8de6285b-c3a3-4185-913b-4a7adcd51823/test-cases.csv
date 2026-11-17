@@ -1,0 +1,55 @@
+Case ID,Title,Story IDs,Priority,Preconditions,Step Number,Steps,Expected Result,Test Data
+LOGIN_001,Verify login page loads successfully,,High,Application URL is available,1,1. Open the application URL.,,N/A
+LOGIN_001,Verify login page loads successfully,,High,Application URL is available,2,https://opensource-demo.orangehrmlive.com/web/index.php/auth/login,"Login page should load successfully with username, password, Login button and relevant links.",N/A
+LOGIN_002,Verify login with valid credentials,,High,User account exists and is active,1,1. Enter valid username.,,"Username: $ADMIN_USERNAME
+Password: $ADMIN_PASSWORD"
+LOGIN_002,Verify login with valid credentials,,High,User account exists and is active,2,2. Enter valid password.,,"Username: $ADMIN_USERNAME
+Password: $ADMIN_PASSWORD"
+LOGIN_002,Verify login with valid credentials,,High,User account exists and is active,3,3. Click Login.,User should be authenticated and redirected to the home/dashboard page.,"Username: $ADMIN_USERNAME
+Password: $ADMIN_PASSWORD"
+LOGIN_003,Verify login with invalid username,,High,Login page is open,1,1. Enter an unregistered username.,,"Username: unknown_user
+Password: $ADMIN_PASSWORD"
+LOGIN_003,Verify login with invalid username,,High,Login page is open,2,2. Enter a valid-format password.,,"Username: unknown_user
+Password: $ADMIN_PASSWORD"
+LOGIN_003,Verify login with invalid username,,High,Login page is open,3,3. Click Login.,Login should fail and a suitable error message should be displayed.,"Username: unknown_user
+Password: $ADMIN_PASSWORD"
+LOGIN_004,Verify login with invalid password,,High,A valid user account exists,1,1. Enter a valid username.,,"Username: $ADMIN_USERNAME
+Password: Wrong@123"
+LOGIN_004,Verify login with invalid password,,High,A valid user account exists,2,2. Enter an incorrect password.,,"Username: $ADMIN_USERNAME
+Password: Wrong@123"
+LOGIN_004,Verify login with invalid password,,High,A valid user account exists,3,3. Click Login.,Login should fail and a suitable error message should be displayed.,"Username: $ADMIN_USERNAME
+Password: Wrong@123"
+LOGIN_005,Verify login with both fields blank,,High,Login page is open,1,1. Leave username and password blank.,,"Username: blank
+Password: blank"
+LOGIN_005,Verify login with both fields blank,,High,Login page is open,2,2. Click Login.,Required-field validation messages should be displayed and login should not proceed.,"Username: blank
+Password: blank"
+LOGIN_006,Verify username field mandatory validation,,High,Login page is open,1,1. Leave username blank.,,"Username: blank
+Password: $ADMIN_PASSWORD"
+LOGIN_006,Verify username field mandatory validation,,High,Login page is open,2,2. Enter a valid password.,,"Username: blank
+Password: $ADMIN_PASSWORD"
+LOGIN_006,Verify username field mandatory validation,,High,Login page is open,3,3. Click Login.,A required validation message should be displayed for username.,"Username: blank
+Password: $ADMIN_PASSWORD"
+LOGIN_007,Verify password field mandatory validation,,High,Login page is open,1,1. Enter a valid username.,,"Username: valid_user
+Password:"
+LOGIN_007,Verify password field mandatory validation,,High,Login page is open,2,2. Leave password blank.,,"Username: valid_user
+Password:"
+LOGIN_007,Verify password field mandatory validation,,High,Login page is open,3,3. Click Login.,A required validation message should be displayed for password.,"Username: valid_user
+Password:"
+LOGIN_008,Verify password is masked by default,,Medium,Login page is open,1,1. Enter any password in the password field.,"Password characters should be masked (for example, displayed as dots or bullets).",Password: $ADMIN_PASSWORD
+LOGIN_009,Verify show/hide password option,,Low,Login page is open and password visibility control is available,1,1. Enter a password.,,Password: $ADMIN_PASSWORD
+LOGIN_009,Verify show/hide password option,,Low,Login page is open and password visibility control is available,2,2. Click the show-password control.,,Password: $ADMIN_PASSWORD
+LOGIN_009,Verify show/hide password option,,Low,Login page is open and password visibility control is available,3,3. Click it again.,Password should become readable when shown and masked again when hidden.,Password: $ADMIN_PASSWORD
+LOGIN_010,Verify username field accepts valid input,,Medium,Login page is open,1,1. Enter a valid username in the username field.,The username should be accepted according to the field's defined format and length rules.,Username: $ADMIN_USERNAME
+LOGIN_011,Verify username field trims leading/trailing spaces,,Medium,Login page is open; account exists,1,1. Enter the valid username with leading/trailing spaces.,,"Username:  $ADMIN_USERNAME
+Password: admin@123"
+LOGIN_011,Verify username field trims leading/trailing spaces,,Medium,Login page is open; account exists,2,2. Enter the valid password.,,"Username:  $ADMIN_USERNAME
+Password: admin@123"
+LOGIN_011,Verify username field trims leading/trailing spaces,,Medium,Login page is open; account exists,3,3. Click Login.,The application should handle surrounding spaces according to requirements; it should not cause unintended authentication failure.,"Username:  $ADMIN_USERNAME
+Password: admin@123"
+LOGIN_012,Verify password is case-sensitive,,High,A valid user account exists,1,1. Enter a valid username.,,"Username: valid_user
+Password: AdMin@123"
+LOGIN_012,Verify password is case-sensitive,,High,A valid user account exists,2,2. Enter the correct password with different letter casing.,,"Username: valid_user
+Password: AdMin@123"
+LOGIN_012,Verify password is case-sensitive,,High,A valid user account exists,3,3. Click Login.,Login should fail if the password does not exactly match the registered password.,"Username: valid_user
+Password: AdMin@123"
+LOGIN_13,Verify Forgot Password navigation,,Medium,Login page is open,1,1. Click the Forgot Password link.,User should be redirected to the password recovery page or flow.,N/A
